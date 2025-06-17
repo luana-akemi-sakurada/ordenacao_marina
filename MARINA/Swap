@@ -1,0 +1,8 @@
+class Swap {
+
+    public static void swap(int[] vetor, int i, int j) {
+        int aux = vetor[i];
+        vetor[i] = vetor[j];
+        vetor[j] = aux;
+    }
+}
