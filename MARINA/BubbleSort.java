@@ -1,31 +1,20 @@
 public class BubbleSort {
-
-    // Troca dois elementos no array
-    void trocar(int[] vetor, int posicao1, int posicao2) {
-        int auxiliar = vetor[posicao1];
-        vetor[posicao1] = vetor[posicao2];
-        vetor[posicao2] = auxiliar;
+    void ordenarBolha(int[] vetor) {
+        // Chama a função recursiva para o vetor inteiro.
+        ordenarBolhaRecursivo(vetor, vetor.length);
     }
 
-    // Ordenação por bolha
-    void ordenarBolha(int[] vetor) {
-        int tamanho = vetor.length;
-        boolean trocou;
-
-        for (int i = 0; i < tamanho - 1; i++) {
-            trocou = false;
-
-            for (int j = 0; j < tamanho - 1 - i; j++) {
-                if (vetor[j] > vetor[j + 1]) {
-                    trocar(vetor, j, j + 1);
-                    trocou = true;
-                }
-            }
-
-            // Se não houve troca, o vetor já está ordenado
-            if (!trocou) {
-                break;
+    private void ordenarBolhaRecursivo(int[] vetor, int n) {
+        // Caso base: se o array tem 1 ou menos elementos, já está ordenado.
+        if (n <= 1) {
+            return;
+        }
+        for (int i = 0; i < n - 1; i++) {
+            if (vetor[i] > vetor[i + 1]) {
+                // Utiliza a classe Swap para trocar os elementos.
+                Swap.swap(vetor, i, i + 1);
             }
         }
+        ordenarBolhaRecursivo(vetor, n - 1);
     }
 }
